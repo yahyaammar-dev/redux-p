@@ -1,11 +1,13 @@
-export const increment = () => {
-  return {
-    type: 'INCREMENT'
-  }
-}
+export const sampleTaskStarted = () => ({
+    type: 'SAMPLE_TASKS_START'
+})
 
-export const decrement = () => {
-  return {
-    type: 'DECREMENT'
-  }
-}
+export const sampleTasksSuccess = (tasks) => ({
+	type: "SAMPLE_TASKS_SUCCESS",
+	payload: tasks,
+});
+
+export const sampleTasksError = errorMessage => ({
+  type: "SAMPLE_TASKS_ERROR",
+  payload: errorMessage
+})

@@ -1,16 +1,16 @@
 import React from 'react'
-import { increment , decrement } from './store/Actions';
+import { sampleTaskStarted } from "./store/Actions";
 import { useDispatch } from 'react-redux'
 import { useSelector } from "react-redux";
 
 const Inside = () => {
   const dispatch = useDispatch()
-	const counter = useSelector((state) => (state.count));
+	const counter = useSelector((state) => (state.tasks));
   return (
 		<div>
-			<div>Count: {counter}</div>
-    	<button onClick={()=>dispatch(increment())}>Increase Count</button>
-			<button onClick={()=>dispatch(decrement())}>Decrease Count</button>
+			<h1>hellow</h1>
+			{/* {console.log(counter)} */}
+			<button onClick={() => dispatch(sampleTaskStarted())}>Increase Count</button>
 		</div>
 	);
 }

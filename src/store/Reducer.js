@@ -1,21 +1,25 @@
-import {increment, decrement} from "./Actions"
-
-const intialState ={
-  count : 0
+const INTIAL_STATE = {
+  tasks: null, 
+  isFetching: false,
+  errorMessage: undefined
 }
 
-const reducer = (state = intialState, action) =>{
-    switch (action.type) {
-      case "INCREMENT":
-          return {
-            ...state, count: state.count+1
-          };
-      case "DECREMENT":
-          return {
-            ...state, count: state.count-1
-          }
-      default: return state
-    }
-} 
+const sampleTasksReducer = (state = INTIAL_STATE, action) => {
+  switch(action.type) {
+    case "SAMPLE_TASKS_START":
+        return {
+          ...state, 
+          isFetching: true
+        }
+    case "SAMPLE_TASKS_SUCCESS":
+      return {
+        ...state,
+        isFetching: false, 
+        tasks: action.playload
+      }
+    default: 
+      return state;
+  }
+}
 
-export default reducer
+export default sampleTasksReducer
